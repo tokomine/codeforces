@@ -1,4 +1,4 @@
-# codeforces
+# Codeforces
 My solution to the Codeforces contest.
 
 # activity
