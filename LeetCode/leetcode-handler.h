@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2844.minimum-operations-to-make-a-special-number.cpp"
+#include "2.add-two-numbers.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        string num;
-        in >> num;
+        ListNode* l1;
+        in >> l1;
+        ListNode* l2;
+        in >> l2;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->minimumOperations(num) << std::endl;
+        out << solution_->addTwoNumbers(l1, l2) << std::endl;
     }
     
 private:

@@ -10,10 +10,10 @@
 
 // @lc code=start
 class Solution {
-public:
+  public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<pair<int,int>> v;
-        for(int i = 0; i < nums.size(); i++) {
+        vector<pair<int, int>> v;
+        for (int i = 0; i < nums.size(); i++) {
             v.push_back({nums[i], i});
         }
         sort(v.begin(), v.end());
@@ -25,11 +25,9 @@ public:
                 int mid = (l + r) / 2;
                 if (v[mid].first == res) {
                     return {v[i].second, v[mid].second};
-                }
-                else if (v[mid].first < res) {
+                } else if (v[mid].first < res) {
                     l = mid + 1;
-                }
-                else if (v[mid].first > res) {
+                } else if (v[mid].first > res) {
                     r = mid - 1;
                 }
             }
@@ -38,4 +36,3 @@ public:
     }
 };
 // @lc code=end
-

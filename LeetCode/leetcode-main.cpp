@@ -21,27 +21,28 @@ int main() {
         try {
             lc::Entry::Run(in, out);
             std::cout << "Program compelete." << std::endl;
-        }
-        catch (lc::json::JsonException& e) { throw print_error(in.GetRaw(), in.GetLineCount(), e.GetPosition(), e.what()); }
-        catch (lc::conv::ConvertException& e) {
+        } catch (lc::json::JsonException& e) {
+            throw print_error(in.GetRaw(), in.GetLineCount(), e.GetPosition(), e.what());
+        } catch (lc::conv::ConvertException& e) {
             if (e.GetJson().GetObject() == NULL) throw std::string(e.what());
             throw print_error(in.GetRaw(), in.GetLineCount(), e.GetJson().GetObject()->GetPosistion(), e.what());
-        }
-        catch (lc::EntryException& e) {
+        } catch (lc::EntryException& e) {
             throw print_error(e.GetRaw(), e.GetLine(), e.GetPosition(), e.what());
+        } catch (std::string& e) {
+            throw e;
+        } catch (std::exception& e) {
+            throw std::string("Unhandled error. ") + e.what();
+        } catch (...) {
+            throw std::string("Unhandled error.");
         }
-        catch (std::string& e) { throw e; }
-        catch (std::exception& e) { throw std::string("Unhandled error. ") + e.what(); }
-        catch (...) { throw std::string("Unhandled error."); }
-    }
-    catch (std::string& e) {
+    } catch (std::string& e) {
         std::cerr << "\nError: " << e << std::endl;
     }
     // pause here in terminal
     std::cout << "Press Any Key to Continue..." << std::endl;
     std::cin.clear();
     std::cin.sync();
-    std::cin.get(); // pause
+    std::cin.get();  // pause
     return 0;
 }
 
@@ -50,7 +51,7 @@ std::string print_error(const std::string& raw, int line, int pos, const std::st
     std::stringstream ss;
     ss << info;
     if (pos < 0 || line <= 0) return ss.str();
-    
+
     int n = raw.size();
     int l = std::max(0, pos - lmost);
     if (l <= padding) l = 0;
