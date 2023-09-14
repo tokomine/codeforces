@@ -1,17 +1,17 @@
 # Codeforces
 My solution to the Codeforces contest.
 
-# activity
+## activity
 <p align="center">
   <img src="https://leetcard.jacoblin.cool/tokomine?theme=light&font=Kufam&ext=activity" />
 </p>
 
-# heatmap
+## heatmap
 <p align="center">
    <img src="https://leetcard.jacoblin.cool/tokomine?theme=light&font=Kufam&ext=heatmap" />
 </p>
 
-# contest
+## contest
 <p align="center">
    <img src="https://leetcard.jacoblin.cool/tokomine?theme=light&font=Kufam&ext=contest" />
 </p>
