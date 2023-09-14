@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2848.points-that-intersect-with-cars.cpp"
+#include "2850.minimum-moves-to-spread-stones-over-grid.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,12 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        vector<vector<int>> nums;
-        in >> nums;
+        vector<vector<int>> grid;
+        in >> grid;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->numberOfPoints(nums) << std::endl;
+        out << solution_->minimumMoves(grid) << std::endl;
     }
     
 private:
