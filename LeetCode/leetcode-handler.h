@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "1.two-sum.cpp"
+#include "2848.points-that-intersect-with-cars.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,12 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        vector<int> nums;
+        vector<vector<int>> nums;
         in >> nums;
-        int target;
-        in >> target;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->twoSum(nums, target) << std::endl;
+        out << solution_->numberOfPoints(nums) << std::endl;
     }
     
 private:
