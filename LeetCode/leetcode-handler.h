@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2850.minimum-moves-to-spread-stones-over-grid.cpp"
+#include "2844.minimum-operations-to-make-a-special-number.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,12 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        vector<vector<int>> grid;
-        in >> grid;
+        string num;
+        in >> num;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->minimumMoves(grid) << std::endl;
+        out << solution_->minimumOperations(num) << std::endl;
     }
     
 private:
