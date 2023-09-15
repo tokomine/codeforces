@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2.add-two-numbers.cpp"
+#include "3.longest-substring-without-repeating-characters.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,12 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        ListNode* l1;
-        in >> l1;
-        ListNode* l2;
-        in >> l2;
+        string s;
+        in >> s;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->addTwoNumbers(l1, l2) << std::endl;
+        out << solution_->lengthOfLongestSubstring(s) << std::endl;
     }
     
 private:
