@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "7.reverse-integer.cpp"
+#include "10.regular-expression-matching.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        int x;
-        in >> x;
+        string s;
+        in >> s;
+        string p;
+        in >> p;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->reverse(x) << std::endl;
+        out << solution_->isMatch(s, p) << std::endl;
     }
     
 private:
