@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2843.count-symmetric-integers.cpp"
+#include "2839.check-if-strings-can-be-made-equal-with-operations-i.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        int low;
-        in >> low;
-        int high;
-        in >> high;
+        string s1;
+        in >> s1;
+        string s2;
+        in >> s2;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->countSymmetricIntegers(low, high) << std::endl;
+        out << solution_->canBeEqual(s1, s2) << std::endl;
     }
     
 private:
