@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "10.regular-expression-matching.cpp"
+#include "2843.count-symmetric-integers.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        string s;
-        in >> s;
-        string p;
-        in >> p;
+        int low;
+        in >> low;
+        int high;
+        in >> high;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->isMatch(s, p) << std::endl;
+        out << solution_->countSymmetricIntegers(low, high) << std::endl;
     }
     
 private:
