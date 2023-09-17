@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2815.max-pair-sum-in-an-array.cpp"
+#include "2841.maximum-sum-of-almost-unique-subarray.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -19,10 +19,14 @@ public:
     void Handle(io::SI& in, io::MO& out) {
         vector<int> nums;
         in >> nums;
+        int m;
+        in >> m;
+        int k;
+        in >> k;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->maxSum(nums) << std::endl;
+        out << solution_->maxSum(nums, m, k) << std::endl;
     }
     
 private:
