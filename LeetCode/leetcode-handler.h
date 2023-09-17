@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2833.furthest-point-from-origin.cpp"
+#include "2828.check-if-a-string-is-an-acronym-of-words.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        string moves;
-        in >> moves;
+        vector<string> words;
+        in >> words;
+        string s;
+        in >> s;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->furthestDistanceFromOrigin(moves) << std::endl;
+        out << solution_->isAcronym(words, s) << std::endl;
     }
     
 private:
