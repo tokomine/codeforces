@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2840.check-if-strings-can-be-made-equal-with-operations-ii.cpp"
+#include "2831.find-the-longest-equal-subarray.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        string s1;
-        in >> s1;
-        string s2;
-        in >> s2;
+        vector<int> nums;
+        in >> nums;
+        int k;
+        in >> k;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->checkStrings(s1, s2) << std::endl;
+        out << solution_->longestEqualSubarray(nums, k) << std::endl;
     }
     
 private:
