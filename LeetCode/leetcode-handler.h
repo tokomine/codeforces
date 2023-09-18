@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2831.find-the-longest-equal-subarray.cpp"
+#include "743.network-delay-time.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,14 +17,16 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        vector<int> nums;
-        in >> nums;
+        vector<vector<int>> times;
+        in >> times;
+        int n;
+        in >> n;
         int k;
         in >> k;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->longestEqualSubarray(nums, k) << std::endl;
+        out << solution_->networkDelayTime(times, n, k) << std::endl;
     }
     
 private:
