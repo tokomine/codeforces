@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "1129.shortest-path-with-alternating-colors.cpp"
+#include "2810.faulty-keyboard.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,16 +17,12 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        int n;
-        in >> n;
-        vector<vector<int>> redEdges;
-        in >> redEdges;
-        vector<vector<int>> blueEdges;
-        in >> blueEdges;
+        string s;
+        in >> s;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->shortestAlternatingPaths(n, redEdges, blueEdges) << std::endl;
+        out << solution_->finalString(s) << std::endl;
     }
     
 private:
