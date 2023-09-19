@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "743.network-delay-time.cpp"
+#include "1129.shortest-path-with-alternating-colors.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,16 +17,16 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        vector<vector<int>> times;
-        in >> times;
         int n;
         in >> n;
-        int k;
-        in >> k;
+        vector<vector<int>> redEdges;
+        in >> redEdges;
+        vector<vector<int>> blueEdges;
+        in >> blueEdges;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->networkDelayTime(times, n, k) << std::endl;
+        out << solution_->shortestAlternatingPaths(n, redEdges, blueEdges) << std::endl;
     }
     
 private:

@@ -1,3 +1,4 @@
+#include "leetcode-definition.h"
 /*
  * @lc app=leetcode id=882 lang=cpp
  *
