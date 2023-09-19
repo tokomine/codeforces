@@ -3,7 +3,7 @@
 #ifndef LEETCODE_HANDLER
 #define LEETCODE_HANDLER
 
-#include "2810.faulty-keyboard.cpp"
+#include "2788.split-strings-by-separator.cpp"
 #include "leetcode-io.h"
 
 namespace lc {
@@ -17,12 +17,14 @@ public:
     ~Handler() { delete solution_; }
     json::Json Handle(const json::Json& in, const std::string& fname) { return json::Create<json::JNull>(); }
     void Handle(io::SI& in, io::MO& out) {
-        string s;
-        in >> s;
+        vector<string> words;
+        in >> words;
+        char separator;
+        in >> separator;
         #ifdef LAZY_INTERACTION
         in.Input(LAZY_INTERACTION);
         #endif
-        out << solution_->finalString(s) << std::endl;
+        out << solution_->splitWordsBySeparator(words, separator) << std::endl;
     }
     
 private:
